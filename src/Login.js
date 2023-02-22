@@ -1,6 +1,6 @@
-import "./App.css";
+import React from "react";
 
-function App() {
+function Login() {
   return (
     <>
       <header>
@@ -16,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default Login;
