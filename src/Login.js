@@ -1,4 +1,5 @@
 import React from "react";
+import "./Login.css"
 
 function Login() {
   return (
@@ -6,12 +7,16 @@ function Login() {
       <header>
         <h1>Burger</h1>
       </header>
-      <div>
-        <body>
-          <button className="client">Client</button>
-          <button className="Restaurateur">Restaurateur</button>
-        </body>
-      </div>
+      <body>
+        <div className="boutton">
+          <div className="client">
+            <button className="client_boutton">Client</button>
+          </div>
+          <div className="Restaurateur">
+          <button className="Restaurateur_boutton">Restaurateur</button>
+          </div>
+        </div>
+      </body>
     </>
   );
 }
