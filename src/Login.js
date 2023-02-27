@@ -1,5 +1,8 @@
 import React from "react";
-import "./Login.css"
+import "./Login.css";
+import client from "./img/client.png"
+import serveur from "./img/serveur.jpg"
+
 
 function Login() {
   return (
@@ -8,13 +11,9 @@ function Login() {
         <header>
           <h1>Burger</h1>
         </header>
-          <div className="boutton">
-            <div className="client">
-              <button className="client_boutton">Client</button>
-            </div>
-            <div className="Restaurateur">
-            <button className="Restaurateur_boutton">Restaurateur</button>
-            </div>
+          <div className="gallery">
+              <img src={client} alt="client" ></img>
+              <img src={serveur} alt="serveur"></img>
           </div>
       </div>
     </>
