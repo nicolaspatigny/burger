@@ -1,7 +1,7 @@
 import React from "react";
 
-function Menu() {
+function Acceuil_rest() {
   return <h1>Menu</h1>;
 }
 
-export default Menu;
+export default Acceuil_rest;
