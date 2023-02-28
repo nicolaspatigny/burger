@@ -17,7 +17,7 @@ function Login() {
   };
 
   if (isAuthenticated) {
-    navigate("/Acceuilclient");
+    navigate("/Acceuilclient", { state: { username } });
   }
 
   return (
