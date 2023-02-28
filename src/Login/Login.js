@@ -6,7 +6,7 @@ import serveur from "../img/serveur.jpg";
 function Login() {
   return (
     <>
-      <div className="body">
+      <div className="fond">
         <header>
           <h1 className="Burger">Burger</h1>
         </header>
