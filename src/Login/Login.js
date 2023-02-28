@@ -23,14 +23,14 @@ function Login() {
         </header>
         <div className="gallery">
           <Link
-            to="./ClientLogin"
+            to="/ClientLogin"
             className="image-wrapper"
             onClick={handleClientClick}
           >
             <img src={client} alt="client" />
           </Link>
           <Link
-            to="./RestaurateurLogin"
+            to="/RestaurateurLogin"
             className="image-wrapper"
             onClick={handleRestaurateurClick}
           >
