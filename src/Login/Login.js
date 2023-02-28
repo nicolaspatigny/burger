@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./Login.css";
 import client from "../img/client.png";
 import serveur from "../img/serveur.jpg";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 function Login() {
   const [isClientLogin, setIsClientLogin] = useState(true);
@@ -15,11 +15,41 @@ function Login() {
     setIsClientLogin(false);
   };
 
+  const Fond = styled.div`
+    background-color: blue;
+  `;
+
+  const Titre = styled.h1`
+    font-family: cursive;
+    font-style: italic;
+    position: absolute;
+    font-size: 50px;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: rgb(0, 0, 0);
+      transform: scale(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  `;
+
   return (
     <>
-      <div className="fond">
+      <Fond>
         <header>
-          <h1 className="Burger">Burger</h1>
+          <Titre>Burger</Titre>
         </header>
         <div className="gallery">
           <Link
@@ -37,7 +67,7 @@ function Login() {
             <img src={serveur} alt="serveur" />
           </Link>
         </div>
-      </div>
+      </Fond>
     </>
   );
 }
