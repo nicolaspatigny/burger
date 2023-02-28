@@ -1,7 +1,7 @@
 * {
-  background-color: rgb(89, 181, 89);
+  background-color: rgb(162, 199, 162);
 }
-h1 {
+.Burger {
   font-family: cursive;
   font-style: italic;
   position: absolute;
@@ -12,7 +12,7 @@ h1 {
   display: inline;
 }
 
-h1::after {
+.Burger::after {
   content: "";
   display: block;
   position: absolute;

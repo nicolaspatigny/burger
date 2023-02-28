@@ -8,7 +8,7 @@ function Login() {
     <>
       <div className="body">
         <header>
-          <h1>Burger</h1>
+          <h1 className="Burger">Burger</h1>
         </header>
         <div className="gallery">
           <img src={client} alt="client"></img>
