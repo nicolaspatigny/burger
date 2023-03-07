@@ -5,6 +5,47 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Login() {
+<<<<<<< Updated upstream
+=======
+  const [isClientLogin, setIsClientLogin] = useState(true);
+
+  const handleClientClick = () => {
+    setIsClientLogin(true);
+  };
+
+  const handleRestaurateurClick = () => {
+    setIsClientLogin(false);
+  };
+
+  const Fond = styled.div``;
+
+  const Titre = styled.h1`
+    font-family: cursive;
+    font-style: italic;
+    position: absolute;
+    font-size: 50px;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: rgb(0, 0, 0);
+      transform: scale(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  `;
+
+>>>>>>> Stashed changes
   return (
     <>
       <Fond>
