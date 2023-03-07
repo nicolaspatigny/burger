@@ -34,7 +34,7 @@ input {
   margin-top: 5px;
 }
 
-button {
+.ClientLogin {
   background-color: #007bff;
   border: none;
   border-radius: 5px;
@@ -48,8 +48,4 @@ button {
   margin-top: 15px;
   width: 100%;
   max-width: 100%;
-}
-
-button:hover {
-  background-color: #0062cc;
 }

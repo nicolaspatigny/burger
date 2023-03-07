@@ -12,11 +12,12 @@ function App() {
     <>
       <Routes>
         <Route path="/*" element={<Login />} />
-        <Route path="/Acceuilrestaurateur" element={<Acceuil_rest />} />
-        <Route path="/Acceuilclient" element={<Acceuil_client />} />
-        <Route path="/ClientLogin" element={<ClientLogin />} />
-        <Route path="/RestaurateurLogin" element={<RestaurateurLogin />} />
-        <Route path="/DetailProduits" element={<Detail_produits />} />
+        <Route path="/acceuilrestaurateur" element={<Acceuil_rest />} />
+        <Route path="/acceuilclient" element={<Acceuil_client />} />
+        <Route path="/clientlogin" element={<ClientLogin />} />
+        <Route path="/restaurateurlogin" element={<RestaurateurLogin />} />
+        <Route path="/detailproduits" element={<Detail_produits />} />
+        <Route path="/acceuilrestaurateur" element={<Acceuil_rest />} />
       </Routes>
     </>
   );

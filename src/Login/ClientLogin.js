@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ClientLogin.css";
 
-function Login() {
+function ClientLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -42,10 +42,12 @@ function Login() {
             required
           />
         </label>
-        <button type="submit">Login</button>
+        <button type="submit" className="ClientLogin">
+          Login
+        </button>
       </form>
     </div>
   );
 }
 
-export default Login;
+export default ClientLogin;
