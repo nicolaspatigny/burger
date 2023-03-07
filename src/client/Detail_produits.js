@@ -1,71 +1,99 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+
+const Table = styled.table`
+  border-collapse: collapse;
+  margin: 20px 0;
+`;
+
+const Th = styled.th`
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+`;
+
+const Td = styled.td`
+  padding: 8px;
+  border: 1px solid #ddd;
+`;
+
+const Button = styled.button`
+  padding: 8px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: pointer;
+`;
+
+const QuantityCell = styled(Td)`
+  display: flex;
+  align-items: center;
+`;
 
 function Detailproduits() {
-  const initialMenu = [
-    { name: "Happy meal", quantity: 0, price: 4.0 },
-    { name: "Best of ", quantity: 0, price: 8.5 },
-    { name: "Maxi best of", quantity: 0, price: 10.5 },
-    { name: "Deluxe edition", quantity: 0, price: 9.0 },
-  ];
+  const [ingredients, setIngredients] = useState([
+    { name: "Ingredient 1", price: 2.99, quantity: 1, maxQuantity: 4 },
+    { name: "Ingredient 2", price: 1.99, quantity: 1 },
+    { name: "Ingredient 3", price: 0.99, quantity: 1 },
+  ]);
 
-  const [menu, setMenu] = useState([...initialMenu]);
-
-  const AugmenterQuantite = (quantite) => {
-    const updatedMenu = [...menu];
-    updatedMenu[quantite].quantity++;
-    setMenu(updatedMenu);
+  const updatePrice = () => {
+    let totalPrice = 0;
+    ingredients.forEach((ingredient) => {
+      totalPrice += ingredient.price * ingredient.quantity;
+    });
+    return totalPrice;
   };
 
-  const DiminuerQuantite = (quantite) => {
-    const updatedMenu = [...menu];
-    updatedMenu[quantite].quantity--;
-    setMenu(updatedMenu);
+  const increaseQuantity = (index) => {
+    const updatedIngredients = [...ingredients];
+    if (
+      index === 0 &&
+      updatedIngredients[index].quantity >=
+        updatedIngredients[index].maxQuantity
+    ) {
+      return;
+    }
+    updatedIngredients[index].quantity += 1;
+    setIngredients(updatedIngredients);
   };
 
-  const handleReset = () => {
-    setMenu([...initialMenu]);
+  const decreaseQuantity = (index) => {
+    const updatedIngredients = [...ingredients];
+    if (updatedIngredients[index].quantity > 1) {
+      updatedIngredients[index].quantity -= 1;
+      setIngredients(updatedIngredients);
+    }
   };
-
-  const prixTotal = menu
-    .reduce((acc, menus) => acc + menus.quantity * menus.price, 0)
-    .toFixed(2);
 
   return (
-    <>
-      <ul className="liste-menu">
-        {menu.map((menus, quantite) => (
-          <li key={menus.name}>
-            {menus.name}: {menus.quantity} ({menus.price}€)
-            <button
-              className="boutton-list-menu"
-              onClick={() => DiminuerQuantite(quantite)}
-            >
-              -
-            </button>
-            <button
-              className="boutton-list-menu"
-              onClick={() => AugmenterQuantite(quantite)}
-            >
-              +
-            </button>
-          </li>
-        ))}
-      </ul>
-      <button onClick={handleReset}>Reset</button>
+    <div>
+      <h2>Ingredients</h2>
+      <Table>
+        <thead>
+          <tr>
+            <Th>Désignation</Th>
+            <Th>Prix</Th>
+            <Th>Quantité</Th>
+          </tr>
+        </thead>
+        <tbody>
+          {ingredients.map((ingredient, index) => (
+            <tr key={index}>
+              <Td>{ingredient.name}</Td>
+              <Td>${ingredient.price.toFixed(2)}</Td>
+              <QuantityCell>
+                <Button onClick={() => decreaseQuantity(index)}>-</Button>
+                <span>{ingredient.quantity}</span>
+                <Button onClick={() => increaseQuantity(index)}>+</Button>
+              </QuantityCell>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
       <div>
-        <h3>Summary</h3>
-        <p>
-          Ingredients:
-          <br></br>
-          {menu
-            .filter((menus) => menus.quantity > 0)
-            .map((menus) => `${menus.name} (${menus.quantity})`)
-            .join(", ")}
-        </p>
-        <p>Total Price: €{prixTotal}</p>
+        <span>Price: ${updatePrice().toFixed(2)}</span>
       </div>
-    </>
+    </div>
   );
 }
-
 export default Detailproduits;
