@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 function Detail_produits() {
   const initialMenu = [
-    { name: "Happy meal", quantity: 0, price: 4 },
-    { name: "best of ", quantity: 0, price: 8.5 },
+    { name: "Happy meal", quantity: 0, price: 4.0 },
+    { name: "Best of ", quantity: 0, price: 8.5 },
     { name: "Maxi best of", quantity: 0, price: 10.5 },
-    { name: "deluxe edition", quantity: 0, price: 9 },
+    { name: "Deluxe edition", quantity: 0, price: 9.0 },
   ];
 
   const [menu, setMenu] = useState([...initialMenu]);

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ClientLogin.css";
 
-function Login() {
+function ClientLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -50,4 +50,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ClientLogin;
