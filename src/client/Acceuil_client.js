@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import "./Acceuil_client.css";
 import Profil from "../img/profil.png";
 import MaxiBestOf from "../img/Maxi-bestof.jpg";
 import { Link } from "react-router-dom";
 
-function Acceuil_client() {
+function Acceuilclient() {
   const location = useLocation();
   const username = location.state.username;
 
@@ -27,4 +27,4 @@ function Acceuil_client() {
   );
 }
 
-export default Acceuil_client;
+export default Acceuilclient;
