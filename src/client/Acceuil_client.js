@@ -12,11 +12,13 @@ function Acceuilclient() {
   return (
     <>
       <div>
-        <header>
-          <h1>Mc do</h1>
+        <header className="header">
+          <h1 className="h1">Bienvenue {username}</h1>
           <img src={Profil} alt="Profil" className="profil"></img>
-          <h1>Welcome {username}</h1>
         </header>
+      </div>
+      <div className="ligne"></div>
+      <div>
         <body>
           <Link to="/DetailProduits">
             <img src={MaxiBestOf} alt="MaxiBestof" className="MaxiBestof"></img>
