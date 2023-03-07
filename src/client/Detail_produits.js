@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Detail_produits() {
+function Detailproduits() {
   const initialMenu = [
     { name: "Happy meal", quantity: 0, price: 4.0 },
     { name: "Best of ", quantity: 0, price: 8.5 },
@@ -68,4 +68,4 @@ function Detail_produits() {
   );
 }
 
-export default Detail_produits;
+export default Detailproduits;
