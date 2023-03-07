@@ -31,9 +31,15 @@ const QuantityCell = styled(Td)`
 
 function Detailproduits() {
   const [ingredients, setIngredients] = useState([
-    { name: "Ingredient 1", price: 2.99, quantity: 1, maxQuantity: 4 },
-    { name: "Ingredient 2", price: 1.99, quantity: 1 },
-    { name: "Ingredient 3", price: 0.99, quantity: 1 },
+    {
+      name: "Ingredient 1",
+      price: 2.99,
+      quantity: 1,
+      maxQuantity: 4,
+      minQuantity: 0,
+    },
+    { name: "Ingredient 2", price: 1.99, quantity: 1, minQuantity: 1 },
+    { name: "Ingredient 3", price: 0.99, quantity: 1, minQuantity: 0 },
   ]);
 
   const updatePrice = () => {
@@ -53,18 +59,21 @@ function Detailproduits() {
     ) {
       return;
     }
-    updatedIngredients[index].quantity += 1;
+    updatedIngredients[index].quantity = Math.min(
+      updatedIngredients[index].quantity + 1,
+      updatedIngredients[index].maxQuantity
+    );
     setIngredients(updatedIngredients);
   };
 
   const decreaseQuantity = (index) => {
     const updatedIngredients = [...ingredients];
-    if (updatedIngredients[index].quantity > 1) {
-      updatedIngredients[index].quantity -= 1;
-      setIngredients(updatedIngredients);
-    }
+    updatedIngredients[index].quantity = Math.max(
+      updatedIngredients[index].quantity - 1,
+      updatedIngredients[index].minQuantity
+    );
+    setIngredients(updatedIngredients);
   };
-
   return (
     <div>
       <h2>Ingredients</h2>
