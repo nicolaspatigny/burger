@@ -5,18 +5,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Login() {
-<<<<<<< Updated upstream
-=======
-  const [isClientLogin, setIsClientLogin] = useState(true);
-
-  const handleClientClick = () => {
-    setIsClientLogin(true);
-  };
-
-  const handleRestaurateurClick = () => {
-    setIsClientLogin(false);
-  };
-
   const Fond = styled.div``;
 
   const Titre = styled.h1`
@@ -45,7 +33,6 @@ function Login() {
     }
   `;
 
->>>>>>> Stashed changes
   return (
     <>
       <Fond>
