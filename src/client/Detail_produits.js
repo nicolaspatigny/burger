@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Panier from "../panier/Panier";
 
 const Table = styled.table`
   border-collapse: collapse;
@@ -68,11 +69,10 @@ function Detailproduits() {
 
   const decreaseQuantity = (index) => {
     const updatedIngredients = [...ingredients];
-    updatedIngredients[index].quantity = Math.max(
-      updatedIngredients[index].quantity - 1,
-      updatedIngredients[index].minQuantity
-    );
-    setIngredients(updatedIngredients);
+    if (updatedIngredients[index].quantity > 0) {
+      updatedIngredients[index].quantity -= 1;
+      setIngredients(updatedIngredients);
+    }
   };
   return (
     <div>
@@ -100,7 +100,7 @@ function Detailproduits() {
         </tbody>
       </Table>
       <div>
-        <span>Price: ${updatePrice().toFixed(2)}</span>
+        <Panier /> Price:{updatePrice().toFixed(2)}€ <Panier />
       </div>
     </div>
   );

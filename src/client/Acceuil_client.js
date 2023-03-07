@@ -4,6 +4,7 @@ import "./Acceuil_client.css";
 import Profil from "../img/profil.png";
 import MaxiBestOf from "../img/Maxi-bestof.jpg";
 import { Link } from "react-router-dom";
+import Panier from "../panier/Panier";
 
 function Acceuilclient() {
   const location = useLocation();
@@ -13,7 +14,7 @@ function Acceuilclient() {
     <>
       <div>
         <header className="header">
-          <h1 className="h1">Bienvenue {username}</h1>
+          <h1 className="h1">Bienvenue {username},</h1>
           <img src={Profil} alt="Profil" className="profil"></img>
         </header>
       </div>
@@ -23,6 +24,9 @@ function Acceuilclient() {
           <Link to="/DetailProduits">
             <img src={MaxiBestOf} alt="MaxiBestof" className="MaxiBestof"></img>
           </Link>
+          <div>
+            <Panier />
+          </div>
         </body>
       </div>
     </>

@@ -6,6 +6,7 @@ import Acceuilclient from "./client/Acceuil_client";
 import ClientLogin from "./Login/ClientLogin";
 import RestaurateurLogin from "./Login/RestaurateurLogin";
 import Detailproduits from "./client/Detail_produits";
+import Panier from "./panier/Panier";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/clientlogin" element={<ClientLogin />} />
         <Route path="/restaurateurlogin" element={<RestaurateurLogin />} />
         <Route path="/detailproduits" element={<Detailproduits />} />
+        <Route path="/panier" element={<Panier />} />
       </Routes>
     </>
   );
