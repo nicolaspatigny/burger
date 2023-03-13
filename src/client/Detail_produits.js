@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Panier from "../panier/Panier";
+import store from "../store";
 
 const Table = styled.table`
   border-collapse: collapse;
@@ -31,24 +33,24 @@ const QuantityCell = styled(Td)`
 `;
 
 function Detailproduits() {
-  const [ingredients, setIngredients] = useState([
-    {
-      name: "Ingredient 1",
-      price: 2.99,
-      quantity: 1,
-      maxQuantity: 4,
-      minQuantity: 0,
-    },
-    { name: "Ingredient 2", price: 1.99, quantity: 1, minQuantity: 1 },
-    { name: "Ingredient 3", price: 0.99, quantity: 1, minQuantity: 0 },
-  ]);
+  const ingredients = useSelector((state) => state.ingredients);
+  const total_price = useSelector((state) => state.total_price);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const new_total_price = updatePrice();
+    dispatch({
+      type: "UPDATE_TOTAL_PRICE",
+      payload: new_total_price,
+    });
+  }, [ingredients]);
 
   const updatePrice = () => {
-    let totalPrice = 0;
-    ingredients.forEach((ingredient) => {
-      totalPrice += ingredient.price * ingredient.quantity;
-    });
-    return totalPrice;
+    let new_total_price = 0;
+    for (let i = 0; i < ingredients.length; i++) {
+      new_total_price += ingredients[i].quantity * ingredients[i].price;
+    }
+    return new_total_price;
   };
 
   const increaseQuantity = (index) => {
@@ -64,14 +66,20 @@ function Detailproduits() {
       updatedIngredients[index].quantity + 1,
       updatedIngredients[index].maxQuantity
     );
-    setIngredients(updatedIngredients);
+    store.dispatch({
+      type: "UPDATE_INGREDIENTS",
+      payload: updatedIngredients,
+    });
   };
 
   const decreaseQuantity = (index) => {
     const updatedIngredients = [...ingredients];
     if (updatedIngredients[index].quantity > 0) {
       updatedIngredients[index].quantity -= 1;
-      setIngredients(updatedIngredients);
+      store.dispatch({
+        type: "UPDATE_INGREDIENTS",
+        payload: updatedIngredients,
+      });
     }
   };
   return (
@@ -100,7 +108,7 @@ function Detailproduits() {
         </tbody>
       </Table>
       <div>
-        <Panier /> Price:{updatePrice().toFixed(2)}€ <Panier />
+        <Panier />
       </div>
     </div>
   );
