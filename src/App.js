@@ -12,15 +12,17 @@ import store from "./store";
 function App() {
   return (
     <>
-      <Routes>
-        <Route path="/*" element={<Login />} />
-        <Route path="/acceuilrestaurateur" element={<Acceuilrest />} />
-        <Route path="/acceuilclient" element={<Acceuilclient />} />
-        <Route path="/clientlogin" element={<ClientLogin />} />
-        <Route path="/restaurateurlogin" element={<RestaurateurLogin />} />
-        <Route path="/detailproduits" element={<Detailproduits />} />
-        <Route path="/panier" element={<Panier />} />
-      </Routes>
+      <Provider store={store}>
+        <Routes>
+          <Route path="/*" element={<Login />} />
+          <Route path="/acceuilrestaurateur" element={<Acceuilrest />} />
+          <Route path="/acceuilclient" element={<Acceuilclient />} />
+          <Route path="/clientlogin" element={<ClientLogin />} />
+          <Route path="/restaurateurlogin" element={<RestaurateurLogin />} />
+          <Route path="/detailproduits" element={<Detailproduits />} />
+
+        </Routes>
+      </Provider>
     </>
   );
 }
