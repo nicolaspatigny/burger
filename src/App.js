@@ -15,11 +15,12 @@ function App() {
       <Provider store={store}>
         <Routes>
           <Route path="/*" element={<Login />} />
-          <Route path="/restaurateur" element={<Acceuilrest />} />
-          <Route path="/client" element={<Acceuilclient />} />
+          <Route path="/acceuilrestaurateur" element={<Acceuilrest />} />
+          <Route path="/acceuilclient" element={<Acceuilclient />} />
           <Route path="/clientlogin" element={<ClientLogin />} />
           <Route path="/restaurateurlogin" element={<RestaurateurLogin />} />
           <Route path="/detailproduits" element={<Detailproduits />} />
+
         </Routes>
       </Provider>
     </>
