@@ -8,7 +8,6 @@ import RestaurateurLogin from "./Login/RestaurateurLogin";
 import Detailproduits from "./client/Detail_produits";
 import { Provider } from "react-redux";
 import store from "./store";
-import Commandes from "./restaurateur/Commandes";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
           <Route path="/clientlogin" element={<ClientLogin />} />
           <Route path="/restaurateurlogin" element={<RestaurateurLogin />} />
           <Route path="/detail" element={<Detailproduits />} />
-          <Route path="/Commande" element={<Commandes />} />
         </Routes>
       </Provider>
     </>
