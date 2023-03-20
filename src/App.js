@@ -8,7 +8,6 @@ import RestaurateurLogin from "./Login/RestaurateurLogin";
 import Detailproduits from "./client/Detail_produits";
 import { Provider } from "react-redux";
 import store from "./store";
-import Commandes from "./restaurateur/Commandes";
 
 function App() {
   return (

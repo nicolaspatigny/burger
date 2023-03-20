@@ -7,10 +7,16 @@ import Panier from "../panier/Panier";
 import styled from "styled-components";
 import Popup from "../Popup";
 
+const HeaderPlus = styled.div`
+  padding: 0px;
+  margin: 0px;
+`;
 const Header = styled.header`
+  display: flex;
   height: 75px;
   padding: 0px;
   width: 100%;
+  margin: 0px;
   background-color: crimson;
 `;
 const Bienvenue = styled.h1`
@@ -64,12 +70,12 @@ function Acceuilclient() {
 
   return (
     <>
-      <div>
+      <HeaderPlus>
         <Header>
           <Bienvenue> Bienvenue {username},</Bienvenue>
           <Profil src={Profil_src} alt="Profil" className="profil"></Profil>
         </Header>
-      </div>
+      </HeaderPlus>
       <Ligne></Ligne>
       <div>
         <body>
