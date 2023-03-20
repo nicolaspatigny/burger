@@ -84,7 +84,6 @@ function Detailproduits() {
   };
   return (
     <div>
-      <h2>Ingredients</h2>
       <Table>
         <thead>
           <tr>

@@ -7,10 +7,10 @@ import Panier from "../panier/Panier";
 import styled from "styled-components";
 
 const Header = styled.header`
-  position: relative;
-  margin-bottom: 10px;
   height: 75px;
-  background-color: #fff7e9;
+  padding: 0px;
+  width: 100%;
+  background-color: crimson;
 `;
 const Bienvenue = styled.h1`
   text-align: justify;
@@ -36,9 +36,9 @@ const Ligne = styled.div`
   z-index: 1;
 `;
 
-const Ajouter = styled.button`
+const Ajouter1 = styled.button`
   height: 30px;
-  width: 80px;
+  width: 60px;
   background-color: rgb(0, 160, 0);
   color: white;
 
@@ -49,7 +49,6 @@ const Ajouter = styled.button`
 
 const Maxibestof = styled.div`
   position: relative;
-  left: 10%;
   padding-left: 100px;
 `;
 
@@ -68,12 +67,12 @@ function Acceuilclient() {
       <Ligne></Ligne>
       <div>
         <body>
-          <Link to="/DetailProduits">
+          <Link to="/detail">
             <img src={MaxiBestOf} alt="MaxiBestof" className="MaxiBestof"></img>
           </Link>
           <Maxibestof>
             Menu Maxi Bestof
-            <Ajouter>+</Ajouter>
+            <Ajouter1>+</Ajouter1>
           </Maxibestof>
           <Panier />
         </body>

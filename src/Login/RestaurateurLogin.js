@@ -17,7 +17,7 @@ function RestaurateurLogin() {
   };
 
   if (isAuthenticated) {
-    navigate("/acceuilrestaurateur", { state: { username } });
+    navigate("/restaurateur", { state: { username } });
   }
 
   return (
