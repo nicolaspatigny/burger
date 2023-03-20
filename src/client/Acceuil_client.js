@@ -1,10 +1,11 @@
-import React from "react";
+import { React, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Profil_src from "../img/profil.png";
 import MaxiBestOf from "../img/Maxi-bestof.jpg";
 import { Link } from "react-router-dom";
 import Panier from "../panier/Panier";
 import styled from "styled-components";
+import Popup from "../Popup";
 
 const Header = styled.header`
   height: 75px;
@@ -55,6 +56,11 @@ const Maxibestof = styled.div`
 function Acceuilclient() {
   const location = useLocation();
   const username = location.state.username;
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <>
@@ -72,7 +78,20 @@ function Acceuilclient() {
           </Link>
           <Maxibestof>
             Menu Maxi Bestof
-            <Ajouter1>+</Ajouter1>
+            <Ajouter1 onClick={togglePopup}>
+              +{" "}
+              {isOpen && (
+                <Popup
+                  content={
+                    <>
+                      <b>Design your Popup</b>
+                      <p>Ingredients</p>
+                    </>
+                  }
+                  handleClose={togglePopup}
+                />
+              )}
+            </Ajouter1>
           </Maxibestof>
           <Panier />
         </body>
