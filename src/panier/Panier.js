@@ -11,7 +11,7 @@ const Footer = styled.footer`
   align-items: center;
   height: 80px;
   padding: 0 20px;
-  background-color: #86deff;
+  background-color: #fff7e9;
 `;
 
 const Total = styled.h1`
