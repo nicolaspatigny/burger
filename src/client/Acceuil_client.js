@@ -12,12 +12,11 @@ const HeaderPlus = styled.div`
   margin: 0px;
 `;
 const Header = styled.header`
-  display: flex;
   height: 75px;
   padding: 0px;
   width: 100%;
   margin: 0px;
-  background-color: crimson;
+  background-color: #f7e2bc;
 `;
 const Bienvenue = styled.h1`
   text-align: justify;
@@ -85,18 +84,7 @@ function Acceuilclient() {
           <Maxibestof>
             Menu Maxi Bestof
             <Ajouter1 onClick={togglePopup}>
-              +{" "}
-              {isOpen && (
-                <Popup
-                  content={
-                    <>
-                      <b>Design your Popup</b>
-                      <p>Ingredients</p>
-                    </>
-                  }
-                  handleClose={togglePopup}
-                />
-              )}
+              + {isOpen && <Popup content={<></>} handleClose={togglePopup} />}
             </Ajouter1>
           </Maxibestof>
           <Panier />
