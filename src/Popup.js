@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Detailproduits from "./client/Detail_produits";
 
 const Popupbox = styled.div`
   position: fixed;
@@ -46,6 +47,7 @@ const Popup = (props) => {
       <Box>
         <Close onClick={props.handleClose}>x</Close>
         {props.content}
+        <Detailproduits />
       </Box>
     </Popupbox>
   );

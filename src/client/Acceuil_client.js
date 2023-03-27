@@ -2,7 +2,6 @@ import { React, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Profil_src from "../img/profil.png";
 import MaxiBestOf from "../img/Maxi-bestof.jpg";
-import { Link } from "react-router-dom";
 import Panier from "../panier/Panier";
 import styled from "styled-components";
 import Popup from "../Popup";
@@ -78,10 +77,8 @@ function Acceuilclient() {
       <Ligne></Ligne>
       <div>
         <body>
-          <Link to="/detail">
-            <img src={MaxiBestOf} alt="MaxiBestof" className="MaxiBestof"></img>
-          </Link>
           <Maxibestof>
+            <img src={MaxiBestOf} alt="MaxiBestof" className="MaxiBestof"></img>
             Menu Maxi Bestof
             <Ajouter1 onClick={togglePopup}>
               + {isOpen && <Popup content={<></>} handleClose={togglePopup} />}
