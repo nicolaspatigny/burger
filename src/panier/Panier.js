@@ -23,11 +23,13 @@ const Euro = styled.div`
   font-size: 50px;
 `;
 
-function Panier() {
+function Panier(props) {
+  const { totalPrice } = props;
+
   return (
     <Footer>
       <Total>Total :</Total>
-      <Euro>€</Euro>
+      <Euro>{`${totalPrice.toFixed(2)}€`}</Euro>
     </Footer>
   );
 }

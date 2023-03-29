@@ -1,14 +1,12 @@
 import { React, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Profil_src from "../img/profil.png";
-import MaxiBestOf from "../img/Maxi-bestof.jpg";
 import Panier from "../panier/Panier";
 import styled from "styled-components";
 import Popup from "../Popup";
-import Categorie from "../categorie/Categorie"
-
-
-
+import Categorie from "../categorie/Categorie";
+import Product0 from "../img/product-image-0.jpg";
+import Product1 from "../img/product-image-1.jpg";
 
 const HeaderPlus = styled.div`
   padding: 0px;
@@ -36,24 +34,20 @@ const Profil = styled.img`
   z-index: 2;
 `;
 
-
-const Ajouter1 = styled.button`
-  height: 30px;
-  width: 60px;
-  background-color: rgb(0, 160, 0);
-  color: white;
-
-  &:hover {
-    color: black;
-  }
+const ProductWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
 `;
 
-const Maxibestof = styled.div`
-  position: relative;
-  padding-left: 100px;
+const ProductImage = styled.img`
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
 `;
 
-function Acceuilclient() {
+function Acceuilclient({ index }) {
   const location = useLocation();
   const username = location.state.username;
   const [isOpen, setIsOpen] = useState(false);
@@ -61,6 +55,36 @@ function Acceuilclient() {
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
+
+  const [products, setProducts] = useState([
+    { name: "Maxi", basePrice: 7.8, count: 0, image: Product0 },
+    {
+      name: "McFirst",
+      basePrice: 8.5,
+      count: 0,
+      image: Product1,
+    },
+    {
+      name: "Product C",
+      basePrice: 20,
+      count: 0,
+      image: "./img/product-image-2.jpg",
+    },
+  ]);
+
+  function handleCountChange(index, newCount) {
+    if (newCount < 0) {
+      newCount = 0;
+    }
+    setProducts((prevProducts) => {
+      const newProducts = [...prevProducts];
+      newProducts[index].count = newCount;
+      return newProducts;
+    });
+  }
+  const totalPrice = products.reduce((total, product) => {
+    return total + product.basePrice * product.count;
+  }, 0);
 
   return (
     <>
@@ -70,20 +94,31 @@ function Acceuilclient() {
           <Profil src={Profil_src} alt="Profil" className="profil"></Profil>
         </Header>
       </HeaderPlus>
-      <Panier />
-      <Categorie /> 
+      <Panier totalPrice={totalPrice} />
+      <Categorie />
 
-      
       <div>
-        <body>
-          <Maxibestof>
-            <img src={MaxiBestOf} alt="MaxiBesstof" className="MaxiBestof"></img>
-            Menu Maxi Bestof
-            <Ajouter1 onClick={togglePopup}>
-              + {isOpen && <Popup content={<></>} handleClose={togglePopup} />}
-            </Ajouter1>
-          </Maxibestof>
-        </body>
+        <ProductWrapper>
+          {products.map((product, index) => (
+            <div key={index}>
+              <ProductImage src={product.image} alt={`Product ${index}`} />
+              <div>
+                <button
+                  onClick={() => handleCountChange(index, product.count + 1)}
+                >
+                  +
+                </button>
+                <span>{product.count}</span>
+                <button
+                  onClick={() => handleCountChange(index, product.count - 1)}
+                >
+                  -
+                </button>
+                <p>{`Price: $${product.basePrice.toFixed(2)}`}</p>
+              </div>
+            </div>
+          ))}
+        </ProductWrapper>
       </div>
     </>
   );
