@@ -5,7 +5,7 @@ import MaxiBestOf from "../img/Maxi-bestof.jpg";
 import Panier from "../panier/Panier";
 import styled from "styled-components";
 import Popup from "../Popup";
-import Categorie from "../categorie/Categorie";
+import Categorie from "../categorie/categorie";
 
 const HeaderPlus = styled.div`
   padding: 0px;
