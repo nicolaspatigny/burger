@@ -77,8 +77,8 @@ function Panier(props) {
     <Footer>
       <Total>Total : </Total>
 
-      <ProductCount>{selectedProductNames}</ProductCount>
       <Euro>{`${totalPrice.toFixed(2)}€`}</Euro>
+      <ProductCount>{selectedProductNames}</ProductCount>
       <ResetButton onClick={onReset}>Reset</ResetButton>
     </Footer>
   );
