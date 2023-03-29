@@ -16,7 +16,7 @@ function App() {
 
       <div className={sidebarOpen ? "sidebar open" : "sidebar"}>
         <ul>
-          <li>
+          <li className="menu">
             <a href="#">Menu</a>
           </li>
           <li>
