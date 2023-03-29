@@ -125,7 +125,7 @@ function Acceuilclient({ index }) {
     },
     {
       name: "Happy Meal",
-      basePrice: 20,
+      basePrice: 4,
       count: 0,
       image: Product2,
       ingredients: [
