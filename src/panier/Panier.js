@@ -27,8 +27,27 @@ const ProductCount = styled.div`
   margin-bottom: 5px;
 `;
 
+const ResetButton = styled.button`
+  background-color: #f7e2bc;
+  border: none;
+  color: #333;
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #f8d294;
+    color: white;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+`;
+
 function Panier(props) {
-  const { products, totalPrice } = props;
+  const { products, totalPrice, onReset } = props;
 
   // Create an object that groups products by name and counts the total
   // number of each product that has been selected
@@ -60,6 +79,7 @@ function Panier(props) {
 
       <ProductCount>{selectedProductNames}</ProductCount>
       <Euro>{`${totalPrice.toFixed(2)}€`}</Euro>
+      <ResetButton onClick={onReset}>Reset</ResetButton>
     </Footer>
   );
 }
