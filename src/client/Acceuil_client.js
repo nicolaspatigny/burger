@@ -2,10 +2,10 @@ import { React, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Profil_src from "../img/profil.png";
 import MaxiBestOf from "../img/Maxi-bestof.jpg";
-import { Link } from "react-router-dom";
 import Panier from "../panier/Panier";
 import styled from "styled-components";
 import Popup from "../Popup";
+import Categorie from "../categorie/Categorie";
 
 const HeaderPlus = styled.div`
   padding: 0px;
@@ -31,15 +31,6 @@ const Profil = styled.img`
   right: 0;
   width: 65px;
   z-index: 2;
-`;
-
-const Ligne = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: #fff7e9;
-  position: absolute;
-  left: 0;
-  z-index: 1;
 `;
 
 const Ajouter1 = styled.button`
@@ -77,17 +68,22 @@ function Acceuilclient() {
           <Profil src={Profil_src} alt="Profil" className="profil"></Profil>
         </Header>
       </HeaderPlus>
-      <Ligne></Ligne>
+      <Panier />
+      <Categorie />
+
       <div>
         <body>
           <Maxibestof>
-            <img src={MaxiBestOf} alt="MaxiBestof" className="MaxiBestof"></img>
+            <img
+              src={MaxiBestOf}
+              alt="MaxiBesstof"
+              className="MaxiBestof"
+            ></img>
             Menu Maxi Bestof
             <Ajouter1 onClick={togglePopup}>
               + {isOpen && <Popup content={<></>} handleClose={togglePopup} />}
             </Ajouter1>
           </Maxibestof>
-          <Panier />
         </body>
       </div>
     </>

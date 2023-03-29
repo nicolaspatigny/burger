@@ -1,13 +1,14 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Login from "./Login/Login";
+import Login from "./login/Login";
 import Acceuilrest from "./restaurateur/Acceuil_restaurateur";
 import Acceuilclient from "./client/Acceuil_client";
-import ClientLogin from "./Login/ClientLogin";
-import RestaurateurLogin from "./Login/RestaurateurLogin";
+import ClientLogin from "./login/ClientLogin";
+import RestaurateurLogin from "./login/RestaurateurLogin";
 import Detailproduits from "./client/Detail_produits";
 import { Provider } from "react-redux";
 import store from "./store";
+import Categorie from "./categorie/Categorie";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/clientlogin" element={<ClientLogin />} />
           <Route path="/restaurateurlogin" element={<RestaurateurLogin />} />
           <Route path="/detail" element={<Detailproduits />} />
+          <Route path="/categorie" element={<Categorie />} />
         </Routes>
       </Provider>
     </>
