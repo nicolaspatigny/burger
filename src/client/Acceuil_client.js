@@ -172,7 +172,7 @@ function Acceuilclient({ index }) {
           <Profil src={Profil_src} alt="Profil" className="profil"></Profil>
         </Header>
       </HeaderPlus>
-      <Panier totalPrice={totalPrice} />
+      <Panier products={products} totalPrice={totalPrice} />
       <Categorie />
 
       <div>
