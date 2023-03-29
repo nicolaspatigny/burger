@@ -20,16 +20,21 @@ const PopupContent = styled.div`
   border-radius: 5px;
 `;
 
+const Ingredients = styled.div`
+  margin-left: 20%;
+  font-size: 25px;
+`;
+
 function Popup({ isOpen, togglePopup, product }) {
   if (!isOpen) return null;
 
   return (
     <PopupWrapper>
       <PopupContent>
-        <h2>{product.name} Ingredients:</h2>
+        <h2>Ingredient du {product.name} </h2>
         <ul>
           {product.ingredients.map((ingredient) => (
-            <li key={ingredient}>{ingredient}</li>
+            <Ingredients key={ingredient}>{ingredient}</Ingredients>
           ))}
         </ul>
         <button onClick={togglePopup}>Close</button>
