@@ -57,7 +57,12 @@ function Acceuilclient({ index }) {
   };
 
   const [products, setProducts] = useState([
-    { name: "Maxi", basePrice: 7.8, count: 0, image: Product0 },
+    {
+      name: "Maxi",
+      basePrice: 7.8,
+      count: 0,
+      image: Product0,
+    },
     {
       name: "McFirst",
       basePrice: 8.5,
@@ -101,7 +106,11 @@ function Acceuilclient({ index }) {
         <ProductWrapper>
           {products.map((product, index) => (
             <div key={index}>
-              <ProductImage src={product.image} alt={`Product ${index}`} />
+              <ProductImage
+                src={product.image}
+                alt={`Product ${index}`}
+                onClick={togglePopup}
+              />
               <div>
                 <button
                   onClick={() => handleCountChange(index, product.count + 1)}
