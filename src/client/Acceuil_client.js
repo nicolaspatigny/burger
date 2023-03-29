@@ -132,6 +132,18 @@ function Acceuilclient({ index }) {
     },
   ]);
 
+  function handleReset() {
+    setProducts((prevProducts) => {
+      const newProducts = prevProducts.map((product) => {
+        return {
+          ...product,
+          count: 0, // Set the count of each product to 0
+        };
+      });
+      return newProducts;
+    });
+  }
+
   function handleCountChange(index, newCount) {
     if (newCount < 0) {
       newCount = 0;
@@ -172,7 +184,11 @@ function Acceuilclient({ index }) {
           <Profil src={Profil_src} alt="Profil" className="profil"></Profil>
         </Header>
       </HeaderPlus>
-      <Panier products={products} totalPrice={totalPrice} />
+      <Panier
+        products={products}
+        totalPrice={totalPrice}
+        onReset={handleReset}
+      />
       <Categorie />
 
       <div>
