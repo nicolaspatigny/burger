@@ -8,8 +8,6 @@ import RestaurateurLogin from "./login/RestaurateurLogin";
 import Detailproduits from "./client/Detail_produits";
 import Categorie from "./categorie/categorie";
 
-import Categorie from "./categorie/categorie";
-
 function App() {
   return (
     <>
