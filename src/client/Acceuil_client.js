@@ -55,7 +55,9 @@ const Ajouter1 = styled.button`
 
 const Maxibestof = styled.div`
   position: relative;
-  padding-left: 100px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 `;
 
 function Acceuilclient() {
@@ -78,10 +80,8 @@ function Acceuilclient() {
       <Ligne></Ligne>
       <div>
         <body>
-          <Link to="/detail">
-            <img src={MaxiBestOf} alt="MaxiBestof" className="MaxiBestof"></img>
-          </Link>
           <Maxibestof>
+            <img src={MaxiBestOf} alt="MaxiBestof" className="MaxiBestof"></img>
             Menu Maxi Bestof
             <Ajouter1 onClick={togglePopup}>
               + {isOpen && <Popup content={<></>} handleClose={togglePopup} />}
