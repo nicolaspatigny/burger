@@ -4,7 +4,7 @@ import Profil_src from "../img/profil.png";
 import Panier from "../panier/Panier";
 import styled from "styled-components";
 import Popup from "../Popup";
-import Categorie from "../categorie/Categorie";
+import Categorie from "../categorie/categorie";
 import Product0 from "../img/product-image-0.jpg";
 import Product1 from "../img/product-image-1.jpg";
 

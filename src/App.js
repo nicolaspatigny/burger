@@ -7,7 +7,7 @@ import ClientLogin from "./login/ClientLogin";
 import RestaurateurLogin from "./login/RestaurateurLogin";
 import Detailproduits from "./client/Detail_produits";
 
-import Categorie from "./categorie/Categorie";
+import Categorie from "./categorie/categorie";
 
 function App() {
   return (
