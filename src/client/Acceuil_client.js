@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Profil_src from "../img/profil.png";
 import Panier from "../panier/Panier";
@@ -83,13 +83,6 @@ const Count = styled.span`
   border: none;
   margin: 0 5px;
 `;
-const ProductContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 200px;
-  margin: 10px;
-`;
 
 function Acceuilclient({ index }) {
   const location = useLocation();
@@ -143,16 +136,34 @@ function Acceuilclient({ index }) {
     if (newCount < 0) {
       newCount = 0;
     }
+
     setProducts((prevProducts) => {
       const newProducts = [...prevProducts];
       newProducts[index].count = newCount;
       return newProducts;
     });
+    localStorage.setItem(`product-${index}-count`, newCount);
   }
   const totalPrice = products.reduce((total, product) => {
     return total + product.basePrice * product.count;
   }, 0);
 
+  useEffect(() => {
+    // Retrieve the count of each product from local storage
+    const productCounts = products.map((product, index) => {
+      const count = localStorage.getItem(`product-${index}-count`);
+      return count ? parseInt(count) : 0;
+    });
+
+    // Set the count of each product to the value retrieved from local storage
+    setProducts((prevProducts) => {
+      const newProducts = [...prevProducts];
+      productCounts.forEach((count, index) => {
+        newProducts[index].count = count;
+      });
+      return newProducts;
+    });
+  }, []);
   return (
     <>
       <HeaderPlus>
@@ -161,7 +172,7 @@ function Acceuilclient({ index }) {
           <Profil src={Profil_src} alt="Profil" className="profil"></Profil>
         </Header>
       </HeaderPlus>
-      <Panier totalPrice={totalPrice} />
+      <Panier products={products} totalPrice={totalPrice} />
       <Categorie />
 
       <div>
