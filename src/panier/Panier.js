@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useSelector } from "react-redux";
 
 const Footer = styled.footer`
   position: fixed;
@@ -25,12 +24,10 @@ const Euro = styled.div`
 `;
 
 function Panier() {
-  const total_price = useSelector((state) => state.total_price);
-
   return (
     <Footer>
       <Total>Total :</Total>
-      <Euro>{total_price.toFixed(2)}€</Euro>
+      <Euro>€</Euro>
     </Footer>
   );
 }

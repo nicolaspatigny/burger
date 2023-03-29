@@ -40,10 +40,10 @@ function Login() {
           <Titre>Burger</Titre>
         </header>
         <div className="gallery">
-          <Link to="/ClientLogin" className="image-wrapper">
+          <Link to="/clientLogin" className="image-wrapper">
             <img src={client} alt="client" />
           </Link>
-          <Link to="/RestaurateurLogin" className="image-wrapper">
+          <Link to="/restaurateurLogin" className="image-wrapper">
             <img src={serveur} alt="serveur" />
           </Link>
         </div>
