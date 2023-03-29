@@ -17,13 +17,13 @@ function App() {
       <div className={sidebarOpen ? "sidebar open" : "sidebar"}>
         <ul>
           <li>
-            <a href="#">Onglet 1</a>
+            <a href="#">Menu</a>
           </li>
           <li>
-            <a href="#">Onglet 2</a>
+            <a href="#">Burger</a>
           </li>
           <li>
-            <a href="#">Onglet 3</a>
+            <a href="#">Boissons</a>
           </li>
         </ul>
       </div>
