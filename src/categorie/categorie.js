@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./categorie.css";
+import menu from "../img/menu.png";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -10,14 +11,17 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="arrow-container" onMouseOver={toggleSidebar}>
+      <div className="arrow-container" onClick={toggleSidebar}>
         <div className="arrow"></div>
       </div>
 
       <div className={sidebarOpen ? "sidebar open" : "sidebar"}>
         <ul>
-          <li className="menu">
-            <a href="#">Menu</a>
+          <li>
+            <img src={menu} alt="Burger" className="menu"></img>
+            <a href="#" className="menu-titre">
+              Menu
+            </a>
           </li>
           <li>
             <a href="#">Burger</a>
