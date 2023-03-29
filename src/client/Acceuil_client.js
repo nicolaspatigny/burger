@@ -7,6 +7,7 @@ import Popup from "../Popup";
 import Categorie from "../categorie/categorie";
 import Product0 from "../img/product-image-0.jpg";
 import Product1 from "../img/product-image-1.jpg";
+import Product2 from "../img/product-image-2.jpg";
 
 const HeaderPlus = styled.div`
   padding: 0px;
@@ -36,39 +37,105 @@ const Profil = styled.img`
 
 const ProductWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 20px;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; // Add this property to add space between count and buttons
+    max-width: 250px;
+    margin: 10px;
+  }
 `;
 
 const ProductImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  max-height: 300px;
   margin-bottom: 10px;
+`;
+
+const Button = styled.button`
+  background-color: #f7e2bc;
+  border: none;
+  color: #333;
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #f8d294;
+    color: white;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+`;
+const Count = styled.span`
+  background-color: #f7e2bc;
+  color: #333;
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  border: none;
+  margin: 0 5px;
+`;
+const ProductContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 200px;
+  margin: 10px;
 `;
 
 function Acceuilclient({ index }) {
   const location = useLocation();
   const username = location.state.username;
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const togglePopup = () => {
+  const togglePopup = (product) => {
+    setSelectedProduct(product);
     setIsOpen(!isOpen);
   };
 
   const [products, setProducts] = useState([
-    { name: "Maxi", basePrice: 7.8, count: 0, image: Product0 },
+    {
+      name: "Maxi Best of",
+      basePrice: 7.8,
+      count: 0,
+      image: Product0,
+      ingredients: ["beef patty", "lettuce", "tomato", "onion", "mayonnaise"],
+    },
     {
       name: "McFirst",
       basePrice: 8.5,
       count: 0,
       image: Product1,
+      ingredients: [
+        "chicken patty",
+        "lettuce",
+        "tomato",
+        "mayonnaise",
+        "spicy sauce",
+      ],
     },
     {
-      name: "Product C",
+      name: "Happy Meal",
       basePrice: 20,
       count: 0,
-      image: "./img/product-image-2.jpg",
+      image: Product2,
+      ingredients: [
+        "beef patty",
+        "fries",
+        "drink",
+        "ketchup",
+        "mustard",
+        "toy",
+      ],
     },
   ]);
 
@@ -101,24 +168,34 @@ function Acceuilclient({ index }) {
         <ProductWrapper>
           {products.map((product, index) => (
             <div key={index}>
-              <ProductImage src={product.image} alt={`Product ${index}`} />
+              <ProductImage
+                src={product.image}
+                alt={`Product ${index}`}
+                onClick={() => togglePopup(product)}
+              />
               <div>
-                <button
-                  onClick={() => handleCountChange(index, product.count + 1)}
-                >
-                  +
-                </button>
-                <span>{product.count}</span>
-                <button
+                <Button
                   onClick={() => handleCountChange(index, product.count - 1)}
                 >
                   -
-                </button>
-                <p>{`Price: $${product.basePrice.toFixed(2)}`}</p>
+                </Button>
+                <Count>{product.count}</Count>
+                <Button
+                  onClick={() => handleCountChange(index, product.count + 1)}
+                >
+                  +
+                </Button>
+                <p>{`${product.name}`}</p>
+                <p>{`${product.basePrice.toFixed(2)}€`}</p>
               </div>
             </div>
           ))}
         </ProductWrapper>
+        <Popup
+          isOpen={isOpen}
+          togglePopup={() => togglePopup(selectedProduct)}
+          product={selectedProduct}
+        />
       </div>
     </>
   );
