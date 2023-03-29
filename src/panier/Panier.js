@@ -18,8 +18,9 @@ const Total = styled.h1`
 `;
 
 const Euro = styled.div`
+  position: fixed;
   font-style: italic;
-  right: 0;
+  left: 125px;
   font-size: 50px;
 `;
 
