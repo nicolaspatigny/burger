@@ -116,7 +116,7 @@ function Panier(props) {
       <Total>Total : </Total>
       <Euro>{`${totalPrice.toFixed(2)}€`}</Euro>
       <ProductCount>{selectedProductNames}</ProductCount>
-      <Pay onClick={handlePaymentClick}>Payment</Pay>
+      <Pay onClick={handlePaymentClick}>Payer</Pay>
       <ResetButton onClick={onReset}>Reset</ResetButton>
 
       {isPaymentPopupOpen && <PaymentPopup onClose={handlePaymentClose} />}
