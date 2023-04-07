@@ -1,11 +1,11 @@
 import React from "react";
-import styled from "styled-components";
 import Commandes from "./Commandes";
+import Header from "./Header";
 
 function Acceuilrest() {
   return (
     <body>
-      <h1>Page Restaurateur</h1>
+      <Header />
       <Commandes />
     </body>
   );

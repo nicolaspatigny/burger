@@ -6,6 +6,7 @@ import Acceuilclient from "./client/Acceuil_client";
 import ClientLogin from "./login/ClientLogin";
 import RestaurateurLogin from "./login/RestaurateurLogin";
 import Categorie from "./categorie/categorie";
+import Header from "./restaurateur/Header";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/clientlogin" element={<ClientLogin />} />
         <Route path="/restaurateurlogin" element={<RestaurateurLogin />} />
         <Route path="/categorie" element={<Categorie />} />
+        <Route path="/header" element={<Header />} />
       </Routes>
     </>
   );

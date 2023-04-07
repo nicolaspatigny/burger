@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React from "react";
 
 const Footer = styled.footer`
   position: fixed;
@@ -10,7 +11,7 @@ const Footer = styled.footer`
   align-items: center;
   height: 80px;
   padding: 0 20px;
-  background-color: #fff7e9;
+  background-color: #f7e2bc;
 `;
 
 const Total = styled.h1`

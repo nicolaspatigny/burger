@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./ClientLogin.css";
 
 function RestaurateurLogin() {
-  const [username, setUsername] = useState("");
+  const [rusername, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function RestaurateurLogin() {
   };
 
   if (isAuthenticated) {
-    navigate("/restaurateur", { state: { username } });
+    navigate("/restaurateur", { state: { rusername } });
   }
 
   return (
@@ -28,7 +28,7 @@ function RestaurateurLogin() {
           Username:
           <input
             type="text"
-            value={username}
+            value={rusername}
             onChange={(event) => setUsername(event.target.value)}
             required
           />
