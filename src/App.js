@@ -6,6 +6,7 @@ import Acceuilclient from "./client/Acceuil_client";
 import ClientLogin from "./login/ClientLogin";
 import RestaurateurLogin from "./login/RestaurateurLogin";
 import Categorie from "./categorie/categorie";
+import PaymentPopup from "./client/Payment";
 import Header from "./restaurateur/Header";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/clientlogin" element={<ClientLogin />} />
         <Route path="/restaurateurlogin" element={<RestaurateurLogin />} />
         <Route path="/categorie" element={<Categorie />} />
+        <Route path="/pay" element={<PaymentPopup />} />
         <Route path="/header" element={<Header />} />
       </Routes>
     </>

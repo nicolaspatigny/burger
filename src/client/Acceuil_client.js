@@ -45,7 +45,7 @@ const ProductWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; // Add this property to add space between count and buttons
+    justify-content: space-between;
     max-width: 250px;
     margin: 10px;
   }
@@ -176,6 +176,7 @@ function Acceuilclient({ index }) {
       return newProducts;
     });
   }, []);
+
   return (
     <>
       <HeaderPlus>
