@@ -2,13 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import Commandes from "./Commandes";
 
-function Acceuilrest() {
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+`;
+
+const Title = styled.h1`
+  margin-bottom: 50px;
+`;
+
+function Accueilrest() {
   return (
-    <body>
-      <h1>Page Restaurateur</h1>
+    <Wrapper>
+      <Title>Orders</Title>
       <Commandes />
-    </body>
+    </Wrapper>
   );
 }
 
-export default Acceuilrest;
+export default Accueilrest;
