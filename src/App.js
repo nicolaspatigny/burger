@@ -1,10 +1,10 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Login from "./login/Login";
+import Login from "./Login/Login";
 import Acceuilrest from "./restaurateur/Acceuil_restaurateur";
 import Acceuilclient from "./client/Acceuil_client";
-import ClientLogin from "./login/ClientLogin";
-import RestaurateurLogin from "./login/RestaurateurLogin";
+import ClientLogin from "./Login/ClientLogin";
+import RestaurateurLogin from "./Login/RestaurateurLogin";
 import Categorie from "./categorie/categorie";
 import PaymentPopup from "./client/Payment";
 import Header from "./restaurateur/Header";

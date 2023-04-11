@@ -80,6 +80,23 @@ function Panier(props) {
   const [isPaymentPopupOpen, setIsPaymentPopupOpen] = useState(false);
 
   const handlePaymentClick = () => {
+    // Create an array of selected products
+    const selectedProducts = products.filter((product) => product.count > 0);
+  
+    // Get the existing orders from localStorage or create an empty array
+    const orders = JSON.parse(localStorage.getItem("orders") || "[]");
+  
+    // Create a new order object and add it to the orders array
+    const newOrder = {
+      products: selectedProducts,
+      totalPrice: totalPrice,
+      date: new Date().toISOString()
+    };
+    orders.push(newOrder);
+  
+    // Store the updated orders array in localStorage
+    localStorage.setItem("orders", JSON.stringify(orders));
+  
     setIsPaymentPopupOpen(true);
   };
 
