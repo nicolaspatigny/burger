@@ -4,7 +4,7 @@ import serveur from "../img/serveur.jpg";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function Login() {
+function ClientLogin() {
   const Fond = styled.div``;
 
   const Titre = styled.h1`
@@ -52,4 +52,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ClientLogin;
