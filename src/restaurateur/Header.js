@@ -6,7 +6,6 @@ const Tete = styled.header`
   margin: 0px;
   height: 9vh;
   background: #f7e2bc;
-  justify-content: ;
 `;
 
 const Admin = styled.div`
