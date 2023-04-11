@@ -68,8 +68,14 @@ const DeleteButton = styled.button`
   text-decoration: none;
   display: inline-block;
   font-size: 1.2rem;
-  margin-left: 20px;
+  margin-left: 5px;
   cursor: pointer;
+`;
+
+const CommandePaC = styled.p`
+  font-size: 4vh;
+  left: 0;
+  margin: 0;
 `;
 
 function Commandes() {
@@ -88,33 +94,36 @@ function Commandes() {
   };
 
   return (
-    <OrdersWrapper>
-      {orders.map((order, index) => (
-        <Order key={index}>
-          <OrderHeader>
-            <OrderTitle>Order #{index + 1}</OrderTitle>
-            <div>
-              <OrderDate>{order.date}</OrderDate>
-              <DeleteButton onClick={() => handleDeleteOrder(index)}>
-                Delete
-              </DeleteButton>
-            </div>
-          </OrderHeader>
-          <OrderTotalPrice>
-            Total Price: {order.totalPrice.toFixed(2)}€
-          </OrderTotalPrice>
-          <ProductList>
-            {order.products.map((product, index) => (
-              <ProductListItem key={index}>
-                <ProductName>{product.name}</ProductName>
-                <ProductCount>({product.count})</ProductCount>
-                <ProductPrice>{product.basePrice.toFixed(2)}€</ProductPrice>
-              </ProductListItem>
-            ))}
-          </ProductList>
-        </Order>
-      ))}
-    </OrdersWrapper>
+    <>
+      <CommandePaC>Commandes passées :</CommandePaC>
+      <OrdersWrapper>
+        {orders.map((order, index) => (
+          <Order key={index}>
+            <OrderHeader>
+              <OrderTitle>Commande n°{index + 1}</OrderTitle>
+              <div>
+                <OrderDate>{order.date}</OrderDate>
+                <DeleteButton onClick={() => handleDeleteOrder(index)}>
+                  Delete
+                </DeleteButton>
+              </div>
+            </OrderHeader>
+            <OrderTotalPrice>
+              Prix Total : {order.totalPrice.toFixed(2)}€
+            </OrderTotalPrice>
+            <ProductList>
+              {order.products.map((product, index) => (
+                <ProductListItem key={index}>
+                  <ProductName>{product.name}</ProductName>
+                  <ProductCount>({product.count})</ProductCount>
+                  <ProductPrice>{product.basePrice.toFixed(2)}€</ProductPrice>
+                </ProductListItem>
+              ))}
+            </ProductList>
+          </Order>
+        ))}
+      </OrdersWrapper>
+    </>
   );
 }
 
