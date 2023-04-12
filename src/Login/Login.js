@@ -1,6 +1,6 @@
 import "./Login.css";
 import client from "../img/client.png";
-import serveur from "../img/serveur.jpg";
+import serveur from "../img/chef.png";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -33,6 +33,8 @@ function ClientLogin() {
     }
   `;
 
+  
+
   return (
     <>
       <Fond>
@@ -40,10 +42,10 @@ function ClientLogin() {
           <Titre>Burger</Titre>
         </header>
         <div className="gallery">
-          <Link to="/clientLogin" className="image-wrapper">
+          <Link to="/clientLogin" className="image-client">
             <img src={client} alt="client" />
           </Link>
-          <Link to="/restaurateurLogin" className="image-wrapper">
+          <Link to="/restaurateurLogin" className="image-chef">
             <img src={serveur} alt="serveur" />
           </Link>
         </div>
